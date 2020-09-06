@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:istqfar/counter.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Istqfar',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Istqfar'),
     );
   }
 }
@@ -42,16 +44,85 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Center(
+              child: Text(
+                'سبحان الله',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Center(
+              child: Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondRoute()),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.green,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'استغفر الله',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.green,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'سبحان الله',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.green,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'الحمد لله',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
             ),
           ],
         ),

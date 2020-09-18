@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:istqfar/misbaha.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Istqfar ',
+      title: 'Istqfar - استغفار',
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -37,8 +38,48 @@ class _MyHomePageState extends State<MyHomePage> {
   //   });
   // }
 
+  FlutterLocalNotificationsPlugin fltrNotification;
+
+  @override
+  void initState() {
+    super.initState();
+    var androidInitilize = new AndroidInitializationSettings('app_icon');
+    var iOSinitilize = new IOSInitializationSettings();
+    var initilizationsSettings =
+        new InitializationSettings(androidInitilize, iOSinitilize);
+    fltrNotification = new FlutterLocalNotificationsPlugin();
+    fltrNotification.initialize(initilizationsSettings,
+        onSelectNotification: notificationSelected);
+  }
+
+  Future notificationSelected(String payload) async {
+    // showDialog(
+    //   context: context,
+    //   builder: (context) => AlertDialog(
+    //     content: Text("Notification : $payload"),
+    //   ),
+    // );
+  }
+
+  Future _showNotification() async {
+    var androidDetails = new AndroidNotificationDetails(
+        "Channel ID", "Desi programmer", "This is my channel",
+        importance: Importance.Max);
+    var iSODetails = new IOSNotificationDetails();
+    var generalNotificationDetails =
+        new NotificationDetails(androidDetails, iSODetails);
+
+    // await fltrNotification.show(
+    //     0, "Task", "You created a Task", generalNotificationDetails,
+    //     payload: "Task");
+    var scheduledTime = DateTime.now().add(Duration(hours: 1));
+    fltrNotification.schedule(1, "تنبيه بالذكر", "سبحان الله وبحمده",
+        scheduledTime, generalNotificationDetails);
+  }
+
   @override
   Widget build(BuildContext context) {
+    _showNotification();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

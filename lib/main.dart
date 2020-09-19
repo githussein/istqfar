@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Istqfar - استغفار',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.brown,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Istqfar - استغفار'),
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -199,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -226,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -252,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.green,
+                color: Colors.brown,
                 child: (ListTile(
                   leading: Icon(
                     Icons.location_on,
@@ -272,6 +272,47 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'استغفار - Istqfar',
+                style: TextStyle(color: Colors.white),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.brown,
+              ),
+            ),
+            ListTile(
+              title: Text('حول التطبيق'),
+              trailing: Icon(Icons.mobile_screen_share),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('الإعدادات'),
+              trailing: Icon(Icons.settings),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   tooltip: 'Increment',
@@ -283,17 +324,17 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('الرئيسية'),
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.brown,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.playlist_add_check),
             title: Text('المسبحة'),
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.brown,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.alarm),
             title: Text('الأذكار'),
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.brown,
           ),
         ],
       ),

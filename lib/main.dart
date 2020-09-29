@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:istqfar/counter.dart';
+import 'package:istqfar/choose_azkar.dart';
 import 'package:istqfar/misbaha.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -30,13 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-  //
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+  int _selectedIndex = 0;
+  final List<Widget> _widgetOptions = [];
 
   FlutterLocalNotificationsPlugin fltrNotification;
 
@@ -53,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future notificationSelected(String payload) async {
+    //CURRENTLY THE NOTIFICATION JUST TAKE THE USER TO THE APP
     // showDialog(
     //   context: context,
     //   builder: (context) => AlertDialog(
@@ -79,219 +77,222 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    //show local notification after certain time
     _showNotification();
+
     return Scaffold(
+      backgroundColor: Colors.brown[200],
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
         child: ListView(
           children: <Widget>[
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Counter('استغفر الله')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+              decoration: BoxDecoration(
+                  color: Colors.brown[400],
+                  border: Border.all(
+                    color: Colors.brown[900],
                   ),
-                  title: Text(
-                    'استغفر الله',
+                  borderRadius: BorderRadius.all(Radius.circular(45))),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'آيـة اليـوم',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22.0,
+                      color: Colors.brown[900],
+                    ),
                   ),
-                )),
+                  SizedBox(
+                    height: 10.0,
+                    child: Divider(
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                  Text(
+                    'فَسَتَذْكُرُونَ مَا أَقُولُ لَكُمْ ۚ وَأُفَوِّضُ أَمْرِي إِلَى اللَّهِ ۚ إِنَّ اللَّهَ بَصِيرٌ بِالْعِبَادِ (44)',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'غـافـر',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                ],
               ),
             ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Counter('سبحان الله')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+              decoration: BoxDecoration(
+                  color: Colors.brown[400],
+                  border: Border.all(
+                    color: Colors.brown[900],
                   ),
-                  title: Text(
-                    'سبحان الله',
+                  borderRadius: BorderRadius.all(Radius.circular(45))),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'حـديـث اليـوم',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22.0,
+                      color: Colors.brown[900],
+                    ),
                   ),
-                )),
+                  SizedBox(
+                    height: 10.0,
+                    child: Divider(
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                  Text(
+                    'أبشروا وأمّلوا ما يسركم، فوالله ما الفقر أخشى عليكم، ولكني أخشى أن تبسط الدنيا عليكم كما بسطت على من كان قبلكم، فتنافسوها كما تنافسوها، فتهلككم كما أهلكتهم',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'مـتـفـق عـلـيـه',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                ],
               ),
             ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Counter('الحمد لله')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+              decoration: BoxDecoration(
+                  color: Colors.brown[400],
+                  border: Border.all(
+                    color: Colors.brown[900],
                   ),
-                  title: Text(
-                    'الحمد لله',
+                  borderRadius: BorderRadius.all(Radius.circular(45))),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'قـصـة الأسـبوع',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22.0,
+                      color: Colors.brown[900],
+                    ),
                   ),
-                )),
-              ),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Counter('الله أكبر')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
+                  SizedBox(
+                    height: 10.0,
+                    child: Divider(
+                      color: Colors.brown[900],
+                    ),
                   ),
-                  title: Text(
-                    'الله أكبر',
+                  Text(
+                    'سعد بن أبي وقاص، خال رسول الله صلى الله عليه وسلم',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
                   ),
-                )),
-              ),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Counter('لا إله إلا الله')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'لا إله إلا الله',
+                  Text(
+                    'نشأ سعد في قريش، واشتغل في بري السهام وصناعة القِسِيّ، وهذا عمل يؤهِّل صاحبه للائتلاف مع الرمي، وحياة الصيد والغزو، وكان يمضي وقته وهو يخالط شباب قريش وساداتهم، ويتعرف على الدنيا عن طريق الحجيج الوافد إلى مكة المكرمة في أيام الحج ومواسمها',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
                   ),
-                )),
-              ),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          Counter('لا حول ولا قوة إلا بالله')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'لا حول ولا قوة إلا بالله',
+                  Text(
+                    'كان ممن دعاهم أبو بكر للإسلام، فأسلم t مبكرًا، وهو ابن سبع عشرة سنة. وبعد إسلامه تركت أمه الطعام ليعود إلى الكفر، فقال لها: تعلمين والله يا أماه، لو كانت لك مائة نفس فخرجت نفسًا نفسًا، ما تركت ديني هذا لشيء؛ فإن شئت فكلي، وإن شئت لا تأكلي. فحلفتْ ألا تكلمه أبدًا حتى يكفر بدينه، ولا تأكل ولا تشرب؛ فأنزل الله : {وَوَصَّيْنَا الإِنْسَانَ بِوَالِدَيْهِ حُسْنًا وَإِنْ جَاهَدَاكَ لِتُشْرِكَ بِي مَا لَيْسَ لَكَ بِهِ عِلْمٌ فَلاَ تُطِعْهُمَا إِلَيَّ مَرْجِعُكُمْ فَأُنَبِّئُكُمْ بِمَا كُنْتُمْ تَعْمَلُونَ} [العنكبوت: 8]',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
                   ),
-                )),
-              ),
-            ),
-            FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Counter('اللهم صل على نبينا محمد')),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                color: Colors.brown,
-                child: (ListTile(
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'اللهم صل على نبينا محمد',
+                  Text(
+                    'وكان سعد بن أبي وقاص أحد الفرسان، وهو أول من رمى بسهمٍ في سبيل الله، وهو أحد الستة أصحاب الشورى',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
                   ),
-                )),
+                  Text(
+                    'لم تعد حياة سعد ضياعًا في أحاديث التجارة أو اللغو، ولم يعد عمله في صنع السهام والقِسِيّ من أجل الربح، بل أصبح عمله جميعه موجَّهًا لهدف واحد، هو نصرة الدين، وإعلاء كلمة الله، والجهاد في سبيله بالمال والنفس والأهل والعشيرة؛ فقد شهد مع النبي غزوة بُواط وكان يحمل لواءها، وغزوة أُحد، وكان الرسول يعتمده في بعض الأعمال الخاصة، مثل إرساله مع علي بن أبي طالب والزبير بن العوام رضي الله عنهما بمهمة استطلاعية عند ماء بدر، وعندما عقد صلح الحديبية كان سعد بن أبي وقاص أحد شهود الصلح',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'تولى سعد بن أبي وقاص مهمة قيادة جيش المسلمين في أصعب مرحلة من مراحل الحرب في بلاد فارس والعراق، فاستطاع بفضل الله أولاً، ثم بكفاءته وقدرته القيادية وتوجيهات أمير المؤمنين وجيشٍ يملؤه الإيمان أن يهزم الفرس هزيمة ساحقة في القادسية',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
       ),
-
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
+      endDrawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("images/seb7ah.jpg"),
+                      fit: BoxFit.cover)),
               child: Text(
                 'استغفار - Istqfar',
                 style: TextStyle(color: Colors.white),
               ),
-              decoration: BoxDecoration(
-                color: Colors.brown,
-              ),
+            ),
+            ListTile(
+              title: Text('التنبيهات'),
+              leading: Icon(Icons.alarm_on),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               title: Text('حول التطبيق'),
-              trailing: Icon(Icons.mobile_screen_share),
+              leading: Icon(Icons.mobile_screen_share),
               onTap: () {
                 // Update the state of the app
                 // ...
@@ -301,7 +302,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               title: Text('الإعدادات'),
-              trailing: Icon(Icons.settings),
+              leading: Icon(Icons.settings),
               onTap: () {
                 // Update the state of the app
                 // ...
@@ -312,13 +313,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   tooltip: 'Increment',
       //   child: Icon(Icons.add),
       // ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -337,7 +336,27 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.brown,
           ),
         ],
+        currentIndex: _selectedIndex,
+        onTap: onTabTapped,
       ),
     );
+  }
+
+  void onTabTapped(int index) {
+    //TEST
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Misbaha()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChooseAzkar()),
+      );
+    }
+    // setState(() {
+    //   _selectedIndex = index;
+    // });
   }
 }

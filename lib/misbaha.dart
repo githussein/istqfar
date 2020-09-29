@@ -1,123 +1,237 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:istqfar/counter.dart';
 
-class Counter extends StatefulWidget {
-  final String zekrText; //if you have multiple values add here
-  Counter(this.zekrText, {Key key}) : super(key: key);
-
+class Misbaha extends StatefulWidget {
   @override
-  _CounterState createState() => _CounterState();
+  _MisbahaState createState() => _MisbahaState();
 }
 
-class _CounterState extends State<Counter> {
-  int _counter = 0;
-  int _totalCounter = 0;
-  int _round = 1;
-
-  //Method to increment Zekr counter
-  void _incrementCounter() {
-    setState(() {
-      _totalCounter++;
-
-      if (_counter >= 33) {
-        _counter = 1;
-        _round++;
-      } else {
-        _counter++;
-      }
-    });
-  }
-
+class _MisbahaState extends State<Misbaha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.brown[200],
       appBar: AppBar(
-        title: Text("المسبحة"),
+        title: Text("اختيـار الـذكـر"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Container(
+        child: ListView(
           children: <Widget>[
-            Text(
-              widget.zekrText,
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-            ),
-            Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 5.0,
-                  width: 200.0,
-                  child: Divider(
-                    color: Colors.green,
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Counter('سبحان الله')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      '$_totalCounter ',
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Text(
-                      'العدد الكلي ',
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 5.0,
-                  width: 200.0,
-                  child: Divider(
-                    color: Colors.green,
+                  title: Text(
+                    'سبحان الله',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      '$_round',
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Text(
-                      'الدورة ',
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 5.0,
-                  width: 200.0,
-                  child: Divider(
-                    color: Colors.green,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  'عدد المرات',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '$_counter',
-                  style: TextStyle(
-                      fontSize: 48,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green),
-                ),
-              ],
+                )),
+              ),
             ),
             FlatButton(
-              onPressed: _incrementCounter,
-              child: CircleAvatar(
-                radius: 100.0,
-                backgroundColor: Colors.green,
-                child: CircleAvatar(
-                  radius: 95.0,
-                  backgroundImage: AssetImage('images/seb7ah.jpg'),
-                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Counter('الحمد لله')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'الحمد لله',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Counter('الله أكبر')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'الله أكبر',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Counter('لا إله إلا الله')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'لا إله إلا الله',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          Counter('لا حول ولا قوة إلا بالله')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'لا حول ولا قوة إلا بالله',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Counter('اللهم صل على نبينا محمد')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'اللهم صل على نبينا محمد',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Counter('سبحان الله وبحمده')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'سبحان الله وبحمده',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Counter(
+                          'لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير')),
+                );
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                color: Colors.brown,
+                child: (ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
               ),
             ),
           ],

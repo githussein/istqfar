@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #to save numbers of azkar and other main data
+  shared_preferences: ^0.5.12
 
 
   # The following adds the Cupertino Icons font to your application.

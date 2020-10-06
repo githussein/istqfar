@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:istqfar/choose_azkar.dart';
+import 'package:istqfar/hadith.dart';
 import 'package:istqfar/misbaha.dart';
+import 'package:istqfar/story.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() {
@@ -102,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.all(10.0),
                     padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.55),
+                        color: Colors.white.withOpacity(0.60),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                     child: InkWell(
                       onTap: () {
@@ -129,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.all(10.0),
                     padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.55),
+                        color: Colors.white.withOpacity(0.60),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                     child: InkWell(
                       onTap: () {
@@ -161,16 +163,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.all(10.0),
                     padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.55),
+                        color: Colors.white.withOpacity(0.60),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: Column(
-                      children: <Widget>[
-                        ImageIcon(
-                          AssetImage('images/icon-reading.png'),
-                          size: 100.0,
-                        ),
-                        Text('قصص')
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Story()),
+                        );
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          ImageIcon(
+                            AssetImage('images/icon-reading.png'),
+                            size: 100.0,
+                          ),
+                          Text('قصص')
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -179,16 +189,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.all(10.0),
                     padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.55),
+                        color: Colors.white.withOpacity(0.60),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: Column(
-                      children: <Widget>[
-                        ImageIcon(
-                          AssetImage('images/icon-mhmd.png'),
-                          size: 100.0,
-                        ),
-                        Text('أحاديث')
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Hadith()),
+                        );
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          ImageIcon(
+                            AssetImage('images/icon-mhmd.png'),
+                            size: 100.0,
+                          ),
+                          Text('أحاديث')
+                        ],
+                      ),
                     ),
                   ),
                 ),

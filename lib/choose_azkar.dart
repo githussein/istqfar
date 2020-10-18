@@ -15,122 +15,217 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
         title: Text("أذكار المسلم"),
       ),
       body: Container(
-        child: ListView(
-          padding: EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
           children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Azkar(0)),
-                );
-              },
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار بعد الصلاة',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Azkar(1)),
-                );
-              },
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار الوضوء',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {},
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار الصباح',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {},
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار المساء',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {},
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار النوم',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {},
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار الاستيقاظ',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
-            FlatButton(
-              padding: EdgeInsets.all(30.0),
-              onPressed: () {},
-              color: Colors.brown[400],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.brown[900])),
-              child: Text(
-                'أذكار السفر',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Azkar(0)),
+                  );
+                },
+                child: Text(
+                  'سبحان الله',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:istqfar/choose_azkar.dart';
+import 'package:istqfar/favorites.dart';
 import 'package:istqfar/hadith.dart';
 import 'package:istqfar/misbaha.dart';
 import 'package:istqfar/story.dart';
@@ -33,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
   // final List<Widget> _widgetOptions = [];
 
   FlutterLocalNotificationsPlugin flutterNotification;
@@ -218,19 +219,16 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('الرئيسية'),
-            backgroundColor: Colors.brown,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.playlist_add_check),
-            title: Text('المسبحة'),
-            backgroundColor: Colors.brown,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.alarm),
-            title: Text('الأذكار'),
-            backgroundColor: Colors.brown,
+            title: Text(''),
           ),
         ],
         currentIndex: _selectedIndex,
@@ -243,14 +241,10 @@ class _MyHomePageState extends State<MyHomePage> {
     //TEST
     if (index == 1) {
       Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Misbaha()),
-      );
-    } else if (index == 2) {
+          context, MaterialPageRoute(builder: (context) => Favorites()));
+    } else if (index == 0) {
       Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ChooseAzkar()),
-      );
+          context, MaterialPageRoute(builder: (context) => ChooseAzkar()));
     }
     // setState(() {
     //   _selectedIndex = index;

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:istqfar/counter.dart';
 
@@ -11,7 +10,6 @@ class _MisbahaState extends State<Misbaha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
       appBar: AppBar(
         title: Text("اختر الـذكـر"),
       ),

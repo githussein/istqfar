@@ -40,6 +40,7 @@ class _HadithState extends State<Hadith> {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18.0,
+                  fontFamily: 'Gabriola',
                 ),
               ),
               Text(

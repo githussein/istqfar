@@ -10,7 +10,6 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
       appBar: AppBar(
         title: Text("أذكار المسلم"),
       ),
@@ -21,15 +20,12 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
             fit: BoxFit.cover,
           ),
         ),
-        child: GridView.count(
+        child: ListView(
           primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 2,
+          padding: const EdgeInsets.all(15.0),
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -49,7 +45,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -69,7 +65,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -89,7 +85,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -109,7 +105,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -129,7 +125,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -149,7 +145,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -169,7 +165,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -189,7 +185,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),
@@ -209,7 +205,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
               padding: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.7),

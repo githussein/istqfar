@@ -23,8 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #to save numbers of azkar and other main data
+  # To save numbers of azkar and other main data
   shared_preferences: ^0.5.12
+  # A carousel to display Azkar strings
 
 
   # The following adds the Cupertino Icons font to your application.

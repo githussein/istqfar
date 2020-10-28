@@ -38,7 +38,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار بعد الصلاة',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),

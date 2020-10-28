@@ -20,6 +20,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Istqfar - استغفار'),
+      // Directionality(
+      //   textDirection:
+      //       TextDirection.rtl, // To support right to left text direction
+      //   child: MyHomePage(title: 'Istqfar - استغفار'),
+      // ),
     );
   }
 }

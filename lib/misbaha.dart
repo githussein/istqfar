@@ -36,6 +36,27 @@ class _MisbahaState extends State<Misbaha> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
+                              builder: (context) => Counter('استغفر الله')),
+                        );
+                      },
+                      child: Text(
+                        'استغفر الله',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
+                    padding: EdgeInsets.all(5.0),
+                    decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.7),
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
                               builder: (context) => Counter('سبحان الله')),
                         );
                       },

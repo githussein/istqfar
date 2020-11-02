@@ -58,7 +58,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار الصباح',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -78,7 +78,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار المساء',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -98,7 +98,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار النوم',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -118,7 +118,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار الاستيقاظ',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -138,7 +138,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار الوضوء',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -158,7 +158,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار الطعام',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -178,7 +178,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
+                  'أذكار الخلاء',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),
@@ -198,27 +198,7 @@ class _ChooseAzkarState extends State<ChooseAzkar> {
                   );
                 },
                 child: Text(
-                  'سبحان الله',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18.0),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-              padding: EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Azkar(0)),
-                  );
-                },
-                child: Text(
-                  'سبحان الله',
+                  'أذكار السفر',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),

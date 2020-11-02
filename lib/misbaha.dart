@@ -196,28 +196,6 @@ class _MisbahaState extends State<Misbaha> {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter(
-                                  'لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير')),
-                        );
-                      },
-                      child: Text(
-                        'لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:istqfar/choose_azkar.dart';
 import 'package:istqfar/favorites.dart';
 import 'package:istqfar/hadith.dart';
 import 'package:istqfar/misbaha.dart';
+import 'package:istqfar/settings.dart';
 import 'package:istqfar/story.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -124,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('images/icon-tasbih.png'),
-                            size: 100.0,
+                            size: 80.0,
                           ),
                           Text('سبحة')
                         ],
@@ -151,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('images/icon-dua.png'),
-                            size: 100.0,
+                            size: 80.0,
                           ),
                           Text('أذكار')
                         ],
@@ -182,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('images/icon-reading.png'),
-                            size: 100.0,
+                            size: 80.0,
                           ),
                           Text('قصص')
                         ],
@@ -208,7 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('images/icon-mhmd.png'),
-                            size: 100.0,
+                            size: 80.0,
                           ),
                           Text('أحاديث')
                         ],
@@ -249,7 +250,7 @@ class _MyHomePageState extends State<MyHomePage> {
           context, MaterialPageRoute(builder: (context) => Favorites()));
     } else if (index == 0) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ChooseAzkar()));
+          context, MaterialPageRoute(builder: (context) => Settings()));
     }
     // setState(() {
     //   _selectedIndex = index;

@@ -6,10 +6,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool isDNAzkar = false;
-  bool isSleepAzkar = false;
-  //The color of favorite icon
-  Color _favIconColor = Colors.red[700];
+  bool isDayNightReminder = false;
+  bool isSleepReminder = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +30,14 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Switch(
-                    value: isDNAzkar,
+                    value: isDayNightReminder,
                     onChanged: (value) {
                       setState(() {
-                        isDNAzkar = value;
+                        isDayNightReminder = value;
                       });
                     },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.green,
+                    activeTrackColor: Colors.brown[300],
+                    activeColor: Colors.brown,
                   ),
                   Text('أذكار اليوم والليلة'),
                 ],
@@ -93,14 +91,14 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Switch(
-                    value: isSleepAzkar,
+                    value: isSleepReminder,
                     onChanged: (value) {
                       setState(() {
-                        isSleepAzkar = value;
+                        isSleepReminder = value;
                       });
                     },
-                    activeTrackColor: Colors.lightGreenAccent,
-                    activeColor: Colors.green,
+                    activeTrackColor: Colors.brown[300],
+                    activeColor: Colors.brown,
                   ),
                   Text('أذكار النوم'),
                 ],

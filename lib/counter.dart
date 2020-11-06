@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 class Counter extends StatefulWidget {
   final String zekrText;
@@ -10,10 +11,16 @@ class Counter extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter> {
+  //*****NUMBER PICKER*****//
+  int _currentIntValue = 100;
+  NumberPicker integerNumberPicker;
+  NumberPicker horizontalNumberPicker;
+
   int _counter = 0;
   int _totalCounter = 0;
   int _round = 1;
   int storedValue = 0;
+
   //For favourite icon
   Color _favIconColor = Colors.red[700];
 
@@ -101,42 +108,10 @@ class _CounterState extends State<Counter> {
                             Divider(
                               color: Colors.brown,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                InkWell(
-                                  onTap: _incrementCounter,
-                                  child: CircleAvatar(
-                                    radius: 30.0,
-                                    backgroundColor:
-                                        Colors.white.withOpacity(0.66),
-                                    child: Text(
-                                      '1000',
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.brown),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  ' هدف التكرار ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 22.0,
-                                  ),
-                                ),
-                              ],
-                            ),
                             RaisedButton(
-                              onPressed: () {
-                                //hide tile
-                              },
-                              color: Colors.brown,
-                              child: Text(
-                                'تم',
-                                style: TextStyle(color: Colors.white),
-                              ),
+                              onPressed: () => _showIntDialog(),
+                              child:
+                                  new Text("هدف التكـرار:  $_currentIntValue "),
                             ),
                           ],
                         ),
@@ -198,7 +173,7 @@ class _CounterState extends State<Counter> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            ' 1000 ',
+                            '$_currentIntValue',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18.0,
@@ -220,8 +195,8 @@ class _CounterState extends State<Counter> {
               InkWell(
                 onTap: _incrementCounter,
                 child: CircleAvatar(
-                  radius: 120.0,
-                  backgroundColor: Colors.white.withOpacity(0.66),
+                  radius: 100.0,
+                  backgroundColor: Colors.white.withOpacity(0.77),
                   child: Text(
                     '$_totalCounter',
                     style: TextStyle(
@@ -263,5 +238,34 @@ class _CounterState extends State<Counter> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'my_int_key';
     prefs.setInt(key, _totalCounter);
+  }
+
+  void _initializeNumberPickers() {
+    integerNumberPicker = new NumberPicker.integer(
+      initialValue: _currentIntValue,
+      minValue: 0,
+      maxValue: 100,
+      step: 10,
+      onChanged: (value) => setState(() => _currentIntValue = value),
+    );
+  }
+
+  Future _showIntDialog() async {
+    await showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return new NumberPickerDialog.integer(
+          minValue: 10,
+          maxValue: 1000,
+          step: 10,
+          initialIntegerValue: _currentIntValue,
+        );
+      },
+    ).then((num value) {
+      if (value != null) {
+        setState(() => _currentIntValue = value);
+        integerNumberPicker.animateInt(value);
+      }
+    });
   }
 }

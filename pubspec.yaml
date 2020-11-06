@@ -27,6 +27,8 @@ dependencies:
   shared_preferences: ^0.5.12
   # A carousel to display Azkar strings
   carousel_slider: ^2.3.1
+  #to use a number picker
+  numberpicker: ^1.2.1
 
 
   # The following adds the Cupertino Icons font to your application.

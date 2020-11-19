@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'DatabaseHelper.dart';
+import 'Zekr.dart';
 
 class Counter extends StatefulWidget {
   final String zekrText;
@@ -23,7 +25,7 @@ class _CounterState extends State<Counter> {
   List<String> _favList;
 
   //For favourite icon
-  Color _favIconColor = Colors.red[700];
+  Color _favIconColor = Colors.grey;
 
   //Method to increment Zekr counter
   void _incrementCounter() {
@@ -32,10 +34,26 @@ class _CounterState extends State<Counter> {
     });
   }
 
+  //a list to read all azkar in the database
+  List<Zekr> azkarkList = new List();
+
   @override
   void initState() {
+    super.initState();
+
     //Read app settings and azkar counts from SharedPreferences
     _read();
+
+    ///// DATABASE /////
+    DatabaseHelper.instanceFavorites.queryAllRows().then((value) {
+      setState(() {
+        value.forEach((element) {
+          azkarkList.add(Zekr(id: element['id'], title: element["title"]));
+        });
+      });
+    }).catchError((error) {
+      print(error);
+    });
   }
 
   @override
@@ -81,10 +99,9 @@ class _CounterState extends State<Counter> {
                         icon: Icon(Icons.favorite_border, color: _favIconColor),
                         onPressed: () {
                           setState(() {
-                            if (_favIconColor == Colors.red[700]) {
-                              _favIconColor = Colors.grey;
-                            } else {
+                            if (_favIconColor == Colors.grey) {
                               _favIconColor = Colors.red[700];
+                              _addToFavorites();
                             }
                           });
                         },
@@ -266,5 +283,11 @@ class _CounterState extends State<Counter> {
         integerNumberPicker.animateInt(value);
       }
     });
+  }
+
+  //Add zekr to favorites database
+  void _addToFavorites() async {
+    var id = await DatabaseHelper.instanceFavorites
+        .insert(Zekr(title: widget.zekrText));
   }
 }

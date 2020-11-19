@@ -9,6 +9,7 @@ class Favorites extends StatefulWidget {
 }
 
 class _FavoritesState extends State<Favorites> {
+  //a ist to read all azkar in the database
   List<Zekr> azkarkList = new List();
 
   @override

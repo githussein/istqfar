@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:istqfar/favorites.dart';
 import 'DatabaseHelper.dart';
@@ -69,7 +70,7 @@ class _EditFavoritesState extends State<EditFavorites> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 24),
               Expanded(
                 child: Container(
                   child: azkarList.isEmpty
@@ -83,11 +84,15 @@ class _EditFavoritesState extends State<EditFavorites> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
                             child: ListTile(
-                              title: Text(azkarList[index].title),
-                              trailing: IconButton(
+                              leading: IconButton(
                                 icon: Icon(Icons.delete),
                                 onPressed: () =>
                                     _deleteTask(azkarList[index].id),
+                              ),
+                              title: Text(
+                                azkarList[index].title,
+                                textAlign: TextAlign.right,
+                                style: TextStyle(fontSize: 18.0),
                               ),
                             ),
                           );

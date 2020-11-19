@@ -16,10 +16,11 @@ class _CounterState extends State<Counter> {
   NumberPicker integerNumberPicker;
   NumberPicker horizontalNumberPicker;
 
-  int _counter = 0;
   int _totalCounter = 0;
-  int _round = 1;
   int storedValue = 0;
+
+  //***** FAVOURITES *****//
+  List<String> _favList;
 
   //For favourite icon
   Color _favIconColor = Colors.red[700];
@@ -28,13 +29,6 @@ class _CounterState extends State<Counter> {
   void _incrementCounter() {
     setState(() {
       _totalCounter++;
-
-      if (_counter >= 33) {
-        _counter = 1;
-        _round++;
-      } else {
-        _counter++;
-      }
     });
   }
 
@@ -109,6 +103,7 @@ class _CounterState extends State<Counter> {
                               color: Colors.brown,
                             ),
                             RaisedButton(
+                              color: Colors.brown[100],
                               onPressed: () => _showIntDialog(),
                               child:
                                   new Text("هدف التكـرار:  $_currentIntValue "),
@@ -166,28 +161,24 @@ class _CounterState extends State<Counter> {
                           color: Colors.brown[100],
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: FlatButton(
-                      color: Colors.white.withOpacity(0.54),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            '$_currentIntValue',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                            ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          '$_currentIntValue',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
                           ),
-                          Text(
-                            ' هدف التكرار ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                            ),
+                        ),
+                        Text(
+                          ' هدف التكرار ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -210,7 +201,7 @@ class _CounterState extends State<Counter> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white.withOpacity(0.77),
+          backgroundColor: Colors.white.withOpacity(0.55),
           onPressed: () {
             setState(() {
               _totalCounter = 0;
@@ -228,9 +219,17 @@ class _CounterState extends State<Counter> {
 
   _read() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'my_int_key';
-    final value = prefs.getInt(key) ?? 0;
-    _totalCounter = value;
+    final intKey = 'my_int_key';
+    final intValue = prefs.getInt(intKey) ?? 0;
+    _totalCounter = intValue;
+
+    //load Favourites string list
+    final stringPrefs = await SharedPreferences.getInstance();
+    final stringListKey = 'string_list_key';
+    final stringValue = stringPrefs.getStringList(stringListKey) ?? "";
+    _favList = stringValue;
+
+    //Update view
     setState(() {});
   }
 

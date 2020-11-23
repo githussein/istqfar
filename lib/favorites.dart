@@ -10,17 +10,19 @@ class Favorites extends StatefulWidget {
 
 class _FavoritesState extends State<Favorites> {
   //a ist to read all azkar in the database
-  List<Zekr> azkarkList = new List();
+  List<Zekr> azkarList = new List();
+  static final favoritesTable = 'favorites';
 
   @override
   void initState() {
     super.initState();
 
     ///// DATABASE /////
-    DatabaseHelper.instanceFavorites.queryAllRows().then((value) {
+    //Query all the Azkar in the Favorites table
+    DatabaseHelper.instance.queryAllRows(favoritesTable).then((value) {
       setState(() {
         value.forEach((element) {
-          azkarkList.add(Zekr(id: element['id'], title: element["title"]));
+          azkarList.add(Zekr(id: element['id'], title: element["title"]));
         });
       });
     }).catchError((error) {
@@ -50,7 +52,7 @@ class _FavoritesState extends State<Favorites> {
         ),
         child: Container(
           child: ListView.builder(itemBuilder: (ctx, index) {
-            if (index == azkarkList.length) return null;
+            if (index == azkarList.length) return null;
             return Container(
               margin: EdgeInsets.all(5.0),
               decoration: BoxDecoration(
@@ -58,7 +60,7 @@ class _FavoritesState extends State<Favorites> {
                   borderRadius: BorderRadius.all(Radius.circular(15))),
               child: ListTile(
                 title: Text(
-                  azkarkList[index].title,
+                  azkarList[index].title,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18.0),
                 ),

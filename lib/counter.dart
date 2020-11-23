@@ -21,9 +21,6 @@ class _CounterState extends State<Counter> {
   int _totalCounter = 0;
   int storedValue = 0;
 
-  //***** FAVOURITES *****//
-  List<String> _favList;
-
   //For favourite icon
   Color _favIconColor = Colors.grey;
 
@@ -36,6 +33,7 @@ class _CounterState extends State<Counter> {
 
   //a list to read all azkar in the database
   List<Zekr> azkarkList = new List();
+  static final favoritesTable = 'favorites';
 
   @override
   void initState() {
@@ -45,7 +43,7 @@ class _CounterState extends State<Counter> {
     _read();
 
     ///// DATABASE /////
-    DatabaseHelper.instanceFavorites.queryAllRows().then((value) {
+    DatabaseHelper.instance.queryAllRows(favoritesTable).then((value) {
       setState(() {
         value.forEach((element) {
           azkarkList.add(Zekr(id: element['id'], title: element["title"]));
@@ -244,7 +242,6 @@ class _CounterState extends State<Counter> {
     final stringPrefs = await SharedPreferences.getInstance();
     final stringListKey = 'string_list_key';
     final stringValue = stringPrefs.getStringList(stringListKey) ?? "";
-    _favList = stringValue;
 
     //Update view
     setState(() {});
@@ -287,7 +284,7 @@ class _CounterState extends State<Counter> {
 
   //Add zekr to favorites database
   void _addToFavorites() async {
-    var id = await DatabaseHelper.instanceFavorites
-        .insert(Zekr(title: widget.zekrText));
+    await DatabaseHelper.instance
+        .insert(Zekr(title: widget.zekrText), favoritesTable);
   }
 }

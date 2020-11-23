@@ -121,13 +121,6 @@
             </list>
           </value>
         </entry>
-        <entry key="fluttertoast">
-          <value>
-            <list>
-              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-7.0.4/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="image">
           <value>
             <list>
@@ -411,7 +404,6 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/file-5.2.1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-1.4.4+4/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications_platform_interface-1.0.1/lib" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-7.0.4/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.12/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/infinite_listview-1.0.1+1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1/lib" />

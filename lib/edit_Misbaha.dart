@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:istqfar/favorites.dart';
+import 'package:istqfar/misbaha.dart';
 import 'DatabaseHelper.dart';
 import 'Zekr.dart';
 
-class EditFavorites extends StatefulWidget {
+class EditMisbaha extends StatefulWidget {
   @override
-  _EditFavoritesState createState() => _EditFavoritesState();
+  _EditMisbahaState createState() => _EditMisbahaState();
 }
 
-class _EditFavoritesState extends State<EditFavorites> {
+class _EditMisbahaState extends State<EditMisbaha> {
   ///// DATABASE /////
   List<Zekr> azkarList = new List();
-  static final favoritesTable = 'favorites';
+  static final misbahaTable = 'misbaha';
 
   TextEditingController textController = new TextEditingController();
 
@@ -22,7 +22,7 @@ class _EditFavoritesState extends State<EditFavorites> {
 
     ///// DATABASE /////
     //Query all the Azkar in the Favorites table
-    DatabaseHelper.instance.queryAllRows(favoritesTable).then((value) {
+    DatabaseHelper.instance.queryAllRows(misbahaTable).then((value) {
       setState(() {
         value.forEach((element) {
           azkarList.add(Zekr(id: element['id'], title: element["title"]));
@@ -37,7 +37,7 @@ class _EditFavoritesState extends State<EditFavorites> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("تعديل مفضلاتي"),
+        title: Text("تعديل السبحة"),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.done),
@@ -45,7 +45,7 @@ class _EditFavoritesState extends State<EditFavorites> {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Favorites()));
+                    MaterialPageRoute(builder: (context) => Misbaha()));
               }),
         ],
       ),
@@ -116,7 +116,7 @@ class _EditFavoritesState extends State<EditFavorites> {
     //Check if it is not an empty string
     if (newZekr != '') {
       var id = await DatabaseHelper.instance
-          .insert(Zekr(title: newZekr), favoritesTable);
+          .insert(Zekr(title: newZekr), misbahaTable);
       //Update the displayed list of Azkar by adding the recently inserted row
       setState(() {
         azkarList.insert(0, Zekr(id: id, title: newZekr));
@@ -131,7 +131,7 @@ class _EditFavoritesState extends State<EditFavorites> {
   }
 
   void _deleteZekr(int id) async {
-    await DatabaseHelper.instance.delete(id, favoritesTable);
+    await DatabaseHelper.instance.delete(id, misbahaTable);
     setState(() {
       azkarList.removeWhere((element) => element.id == id);
     });

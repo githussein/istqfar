@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:istqfar/counter.dart';
+import 'package:istqfar/edit_Misbaha.dart';
+import 'DatabaseHelper.dart';
+import 'Zekr.dart';
 
 class Misbaha extends StatefulWidget {
   @override
@@ -7,217 +10,131 @@ class Misbaha extends StatefulWidget {
 }
 
 class _MisbahaState extends State<Misbaha> {
+  ///// DATABASE /////
+  List<Zekr> azkarList = new List();
+  static final misbahaTable = 'misbaha';
+
+  TextEditingController textController = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    ///// DATABASE /////
+    //Query all the Azkar in the Favorites table
+    DatabaseHelper.instance.queryAllRows(misbahaTable).then((value) {
+      setState(() {
+        value.forEach((element) {
+          azkarList.add(Zekr(id: element['id'], title: element["title"]));
+        });
+      });
+    }).catchError((error) {
+      print(error);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: Stack(
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/background.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Container(
-              margin: EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
-              child: ListView(
-                padding: const EdgeInsets.all(15.0),
+      appBar: AppBar(
+        title: Text("السبحة"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => EditMisbaha())),
+          )
+        ],
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            children: <Widget>[
+              Row(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter('استغفر الله')),
-                        );
-                      },
-                      child: Text(
-                        'استغفر الله',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: _addToMisbahaTable,
                   ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter('سبحان الله')),
-                        );
-                      },
-                      child: Text(
-                        'سبحان الله',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter('الحمد لله')),
-                        );
-                      },
-                      child: Text(
-                        'الحمد لله',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter('الله أكبر')),
-                        );
-                      },
-                      child: Text(
-                        'الله أكبر',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Counter('لا إله إلا الله')),
-                        );
-                      },
-                      child: Text(
-                        'لا إله إلا الله',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Counter('لا حول ولا قوة إلا بالله')),
-                        );
-                      },
-                      child: Text(
-                        'لا حول ولا قوة إلا بالله',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Counter('اللهم صل على نبينا محمد')),
-                        );
-                      },
-                      child: Text(
-                        'اللهم صل على نبينا محمد',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5.0),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.7),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Counter('سبحان الله وبحمده')),
-                        );
-                      },
-                      child: Text(
-                        'سبحان الله وبحمده',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0),
-                      ),
+                  Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(hintText: "إضافة ذكر"),
+                      controller: textController,
                     ),
                   ),
                 ],
               ),
-            ),
-          ),
-          Positioned(
-            top: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: AppBar(
-              // Add AppBar here only
-              backgroundColor: Colors.transparent,
-              elevation: 0.0,
-              title: Text(
-                "اختر الذكر",
-                style: TextStyle(
-                  color: Colors.black,
+              SizedBox(height: 24),
+              Expanded(
+                child: Container(
+                  child: azkarList.isEmpty
+                      ? Container()
+                      : ListView.builder(itemBuilder: (ctx, index) {
+                          if (index == azkarList.length) return null;
+                          return Container(
+                            margin: EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.7),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Counter(
+                                            azkarList[index].title,
+                                          )),
+                                );
+                              },
+                              child: Text(
+                                azkarList[index].title,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 18.0),
+                              ),
+                            ),
+                          );
+                        }),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
+  }
+
+  void _addToMisbahaTable() async {
+    String newZekr = textController.text;
+    //Check if it is not an empty string
+    if (newZekr != '') {
+      var id = await DatabaseHelper.instance
+          .insert(Zekr(title: newZekr), misbahaTable);
+      //Update the displayed list of Azkar by adding the recently inserted row
+      setState(() {
+        azkarList.insert(0, Zekr(id: id, title: newZekr));
+      });
+      clearName();
+    }
+  }
+
+  //Clear the Text Controller field
+  clearName() {
+    textController.text = '';
+  }
+
+  void _deleteZekr(int id) async {
+    await DatabaseHelper.instance.delete(id, misbahaTable);
+    setState(() {
+      azkarList.removeWhere((element) => element.id == id);
+    });
   }
 }

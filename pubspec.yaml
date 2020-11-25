@@ -65,8 +65,17 @@ flutter:
 
   assets:
     - images/
+    - assets/json/
 
   fonts:
+    - family: Diwani
+      fonts:
+        - asset: fonts/Diwani.ttf
+
+    - family: Cairo-Regular
+      fonts:
+        - asset: fonts/Cairo-Regular.ttf
+
     - family: Gabriola
       fonts:
         - asset: fonts/Gabriola.ttf

@@ -6,8 +6,6 @@ import 'package:istqfar/misbaha.dart';
 import 'package:istqfar/settings.dart';
 import 'package:istqfar/story.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'DatabaseHelper.dart';
-import 'Zekr.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,11 +21,6 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Istqfar - استغفار'),
-      // Directionality(
-      //   textDirection:
-      //       TextDirection.rtl, // To support right to left text direction
-      //   child: MyHomePage(title: 'Istqfar - استغفار'),
-      // ),
     );
   }
 }
@@ -48,8 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   FlutterLocalNotificationsPlugin flutterNotification;
 
-  // List<Zekr> azkarList = new List();
-
   @override
   void initState() {
     super.initState();
@@ -60,17 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     flutterNotification = new FlutterLocalNotificationsPlugin();
     flutterNotification.initialize(initializationSettings,
         onSelectNotification: notificationSelected);
-
-    //   ///// DATABASE /////
-    //   DatabaseHelper.instance.queryAllRows().then((value) {
-    //     setState(() {
-    //       value.forEach((element) {
-    //         azkarList.add(Zekr(id: element['id'], title: element["title"]));
-    //       });
-    //     });
-    //   }).catchError((error) {
-    //     print(error);
-    //   });
   }
 
   Future notificationSelected(String payload) async {

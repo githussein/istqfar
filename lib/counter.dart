@@ -14,7 +14,7 @@ class Counter extends StatefulWidget {
 
 class _CounterState extends State<Counter> {
   //*****NUMBER PICKER*****//
-  int _currentIntValue = 100;
+  int _targetValue = 100;
   NumberPicker integerNumberPicker;
   NumberPicker horizontalNumberPicker;
 
@@ -27,7 +27,7 @@ class _CounterState extends State<Counter> {
   //Method to increment Zekr counter
   void _incrementCounter() {
     setState(() {
-      _totalCounter++;
+      if (_totalCounter < _targetValue) _totalCounter++;
     });
   }
 
@@ -120,8 +120,7 @@ class _CounterState extends State<Counter> {
                             RaisedButton(
                               color: Colors.brown[100],
                               onPressed: () => _showIntDialog(),
-                              child:
-                                  new Text("هدف التكـرار:  $_currentIntValue "),
+                              child: new Text("هدف التكـرار:  $_targetValue "),
                             ),
                           ],
                         ),
@@ -180,7 +179,7 @@ class _CounterState extends State<Counter> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '$_currentIntValue',
+                          '$_targetValue',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18.0,
@@ -255,11 +254,11 @@ class _CounterState extends State<Counter> {
 
   void _initializeNumberPickers() {
     integerNumberPicker = new NumberPicker.integer(
-      initialValue: _currentIntValue,
+      initialValue: _targetValue,
       minValue: 0,
       maxValue: 100,
       step: 10,
-      onChanged: (value) => setState(() => _currentIntValue = value),
+      onChanged: (value) => setState(() => _targetValue = value),
     );
   }
 
@@ -271,12 +270,12 @@ class _CounterState extends State<Counter> {
           minValue: 10,
           maxValue: 1000,
           step: 10,
-          initialIntegerValue: _currentIntValue,
+          initialIntegerValue: _targetValue,
         );
       },
     ).then((num value) {
       if (value != null) {
-        setState(() => _currentIntValue = value);
+        setState(() => _targetValue = value);
         integerNumberPicker.animateInt(value);
       }
     });
